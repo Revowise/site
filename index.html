@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revowise: Unleash your business</title>
+    <meta name="description" content="Expert-led digital transformation consulting services. We help organizations design and implement comprehensive strategies that drive measurable results.">
+    
+    <!-- Google Fonts - Lexend -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #da2374;
+            --primary-foreground: #ffffff;
+            --accent: #503082;
+            --accent-foreground: #ffffff;
+            --background: #ffffff;
+            --foreground: #0f172a;
+            --muted-foreground: #64748b;
+            --border: #e2e8f0;
+            --card: #ffffff;
+            --secondary: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: var(--foreground);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #da2374ff 0%, #503082ff 100%);
+            padding: 2rem 1.5rem 5rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .hero logo {
+            font-size: 2rem;
+            font-weight: 200;
+            line-height: 1.1;
+            color: var(--primary-foreground);
+            animation: fadeIn 0.8s ease-out;
+            padding: 0 0 3rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--primary-foreground);
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3.75rem;
+            }
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            background: white;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: rgba(218, 35, 116, 1);
+            color: white;
+            box-shadow: 0 10px 30px rgba(80, 48, 130, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(80, 48, 130, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(239, 68, 68, 0.4);
+        }
+
+        .btn-secondary .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-secondary:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 1.5rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--foreground);
+        }
+
+        @media (min-width: 768px) {
+            .section-header h2 {
+                font-size: 3rem;
+            }
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--muted-foreground);
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .grid-4 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 0.5rem;
+            background: rgba(238, 35, 116, 0.1);
+            color: var(--accent);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .card-icon {
+            background: var(--accent);
+            color: white;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--foreground);
+        }
+
+        .card p {
+            color: var(--muted-foreground);
+            line-height: 1.7;
+        }
+
+        /* Benefits */
+        .benefit-card {
+            text-align: center;
+        }
+
+        .benefit-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #da2374ff 0%, #503082ff 100%);
+            color: white;
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 30px rgba(218, 35, 116, 0.3);
+        }
+
+        .benefit-metric {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--foreground);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            height: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .quote-icon {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-quote {
+            font-size: 1.125rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+
+        .author-name {
+            font-weight: 700;
+            color: var(--foreground);
+        }
+
+        .author-title {
+            font-size: 0.875rem;
+            color: var(--muted-foreground);
+        }
+
+        .author-company {
+            font-size: 0.875rem;
+            color: var(--accent);
+        }
+
+        /* Expertise Section */
+        .expertise-section {
+            background: linear-gradient(135deg, #da2374ff 0%, #503082ff 100%);
+            color: white;
+        }
+
+        .expertise-content {
+            max-width: 56rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .expertise-content h2 {
+            color: white;
+        }
+
+        .expertise-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .certifications {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .cert-item {
+            text-align: center;
+        }
+
+        .cert-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #f59e0b;
+        }
+
+        .cert-subtitle {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Contact Form */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            font-size: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        textarea.form-control {
+            resize: none;
+            min-height: 150px;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .contact-form {
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            border-top: 1px solid var(--border);
+            padding: 3rem 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--foreground);
+        }
+
+        .footer a {
+            color: var(--muted-foreground);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+        }
+
+        /* Background variations */
+        .bg-secondary {
+            background: rgba(241, 245, 249, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            display: none;
+            animation: slideUp 0.3s ease-out;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            display: block;
+        }
+
+        .toast.success {
+            border-left: 4px solid #10b981;
+        }
+
+        .toast.error {
+            border-left: 4px solid #ef4444;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <logo>
+                Revowise
+            </logo>
+            <div class="hero-grid">
+                <div>
+                    <h1>Unleash Your Business for the Digital Age</h1>
+                    <p>We partner with forward-thinking organizations to design and implement comprehensive digital transformation strategies that drive measurable results and sustainable growth.</p>
+                    <button class="btn btn-secondary" onclick="scrollToContact()">
+                        Contact us
+                        <i data-lucide="arrow-right" class="arrow"></i>
+                    </button>
+                </div>
+                <div class="hero-image">
+                    <img src="https://media.licdn.com/dms/image/v2/C5103AQFnlHS4q73Wkw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1517570688494?e=1764201600&v=beta&t=HPU0F_Ku3U4kMgkz80BKqqBNl4aUGbis0WvypYvimsE" alt="Professional Digital Transformation Consultant">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Digital Transformation Services</h2>
+                <p>End-to-end solutions tailored to your unique business challenges and opportunities</p>
+            </div>
+            <div class="grid grid-4">
+                <div class="card service-card">
+                    <div class="card-icon">
+                        <i data-lucide="lightbulb"></i>
+                    </div>
+                    <h3>Digital Strategy & Roadmap</h3>
+                    <p>Develop a clear, actionable digital transformation strategy aligned with your business goals. We assess your current state and chart the path forward.</p>
+                </div>
+                <div class="card service-card">
+                    <div class="card-icon">
+                        <i data-lucide="workflow"></i>
+                    </div>
+                    <h3>Technology Integration</h3>
+                    <p>Seamlessly integrate cutting-edge technologies into your existing infrastructure. From cloud migration to AI implementation, we handle the complexity.</p>
+                </div>
+                <div class="card service-card">
+                    <div class="card-icon">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <h3>Process Optimization</h3>
+                    <p>Streamline operations with intelligent automation and workflow redesign. Eliminate bottlenecks and accelerate time-to-market.</p>
+                </div>
+                <div class="card service-card">
+                    <div class="card-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <h3>Change Management</h3>
+                    <p>Ensure successful adoption through comprehensive training and cultural transformation. We guide your team through every step of the journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="bg-secondary">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Partner With Us</h2>
+                <p>Proven results that matter to your bottom line</p>
+            </div>
+            <div class="grid grid-3">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i data-lucide="trending-up"></i>
+                    </div>
+                    <div class="benefit-metric">20+</div>
+                    <p>Successful transformations completed</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i data-lucide="shield"></i>
+                    </div>
+                    <div class="benefit-metric">100%</div>
+                    <p>End-to-end project support</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i data-lucide="award"></i>
+                    </div>
+                    <div class="benefit-metric">9+</div>
+                    <p>Years of industry expertise</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise-section">
+        <div class="container">
+            <div class="expertise-content">
+                <h2>Expert-Led Digital Transformation</h2>
+                <p>With over 9 years of experience guiding enterprises through digital transformation, we bring deep expertise across industries and technologies. Our methodology combines strategic thinking with hands-on implementation, ensuring your transformation delivers real business value from day one.</p>
+                <p>We don't believe in one-size-fits-all solutions. Every engagement begins with understanding your unique challenges, culture, and goals. Then we craft a tailored transformation roadmap that aligns technology investments with business outcomes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Let's discuss how we can help you achieve your digital transformation goals. Schedule a free consultation today.</p>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+                    <div class="error-message" id="nameError"></div>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email Address" required>
+                    <div class="error-message" id="emailError"></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="company" name="company" class="form-control" placeholder="Company Name" required>
+                    <div class="error-message" id="companyError"></div>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" class="form-control" placeholder="Tell us about your digital transformation needs..." required></textarea>
+                    <div class="error-message" id="messageError"></div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; text-align: center;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Contact</h3>
+                    <div class="contact-item">
+                        <i data-lucide="mail" style="width: 16px; height: 16px;"></i>
+                        <a href="mailto:arnaud.lacheretz@revowise.com">arnaud.lacheretz@revowise.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i data-lucide="phone" style="width: 16px; height: 16px;"></i>
+                        <a href="tel:+85294474371">+852 9447 4371</a>
+                    </div>
+                </div>
+                <div>
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Digital Strategy</a></li>
+                        <li><a href="#services">Technology Integration</a></li>
+                        <li><a href="#services">Process Optimization</a></li>
+                        <li><a href="#services">Change Management</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/revowise-limited/" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <i data-lucide="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> Revowise Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast notification -->
+    <div id="toast" class="toast"></div>
+
+    <script>
+        // Wait for Lucide to load, then initialize icons
+        window.addEventListener('DOMContentLoaded', function() {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Smooth scroll to contact
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast ${type} show`;
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Form validation and submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Clear previous errors
+            document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+            
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const company = document.getElementById('company').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            let isValid = true;
+            
+            // Validate name
+            if (!name) {
+                document.getElementById('nameError').textContent = 'Name is required';
+                isValid = false;
+            }
+            
+            // Validate email
+            if (!email) {
+                document.getElementById('emailError').textContent = 'Email is required';
+                isValid = false;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('emailError').textContent = 'Invalid email format';
+                isValid = false;
+            }
+            
+            // Validate company
+            if (!company) {
+                document.getElementById('companyError').textContent = 'Company is required';
+                isValid = false;
+            }
+            
+            // Validate message
+            if (!message) {
+                document.getElementById('messageError').textContent = 'Message is required';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // In a real application, you would send this data to a server
+                console.log('Form submitted:', { name, email, company, message });
+                
+                // Show success message
+                showToast('Thank you! We\'ll be in touch soon.', 'success');
+                
+                // Reset form
+                this.reset();
+            } else {
+                showToast('Please fix the errors in the form', 'error');
+            }
+        });
+
+        // Clear error on input
+        document.querySelectorAll('.form-control').forEach(input => {
+            input.addEventListener('input', function() {
+                const errorId = this.id + 'Error';
+                const errorElement = document.getElementById(errorId);
+                if (errorElement) {
+                    errorElement.textContent = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
